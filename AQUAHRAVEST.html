@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaHarvest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            display: none;
+            padding: 20px;
+            height: 100vh;
+            color: white;
+        }
+        .active {
+            display: block;
+        }
+        .option {
+            margin: 20px;
+            cursor: pointer;
+            color: yellow;
+            text-decoration: underline;
+            font-size: 18px;
+        }
+        #home {
+            background-color: blue;
+        }
+        #fishTank, #tipsFishTank, #temperatureFishTank {
+            background-color: #C8A2C8; /* Changed to lilac */
+        }
+        #growBed, #tipsGrowBed, #temperatureGrowBed {
+            background-color: green;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+        }
+        footer {
+            margin-top: 50px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Home -->
+    <div id="home" class="page active">
+        <h1>AQUAHARVEST</h1>
+        <div class="option" onclick="showPage('fishTank')">FISH TANK</div>
+        <div class="option" onclick="showPage('growBed')">GROW BED</div>
+    </div>
+
+    <!-- Page 2: Fish Tank -->
+    <div id="fishTank" class="page">
+        <h1>FISH TANK</h1>
+        <p>pH: 6.5-8.5 (Current: 7.8) <span class="option" onclick="showPage('tipsFishTank')">pH Tips</span></p>
+        <p>Dissolved O₂: 5-8ppm (Current: 6.5ppm)</p>
+        <p>Nutrients: 5-20mg/l (Current: 5.5mg/l)</p>
+        <p>Temperature: 75-80° F (Current: 79.5° F) <span class="option" onclick="showPage('temperatureFishTank')">Temperature Tips</span></p>
+        <div class="option" onclick="showPage('home')">Back to Home</div>
+    </div>
+
+    <!-- Page 3: Grow Bed -->
+    <div id="growBed" class="page">
+        <h1>GROW BED</h1>
+        <p>pH: 6-7 (Current: 7.2) <span class="option" onclick="showPage('tipsGrowBed')">pH Tips</span></p>
+        <p>Moisture: 50%-70% (Current: 60%)</p>
+        <p>Nutrients: 10-50mg/l (Current: 10.5mg/l)</p>
+        <p>Temperature: 72-82° F (Current: 78.5° F) <span class="option" onclick="showPage('temperatureGrowBed')">Temperature Tips</span></p>
+        <div class="option" onclick="showPage('home')">Back to Home</div>
+    </div>
+
+    <!-- Page 4: Tips for Fish Tank -->
+    <div id="tipsFishTank" class="page">
+        <h1>TIPS AND TRICKS - FISH TANK</h1>
+        <p>1. To lower pH, use natural driftwood or peat moss. To raise pH, add crushed coral to your filter.</p>
+        <p>2. Always test water pH before adding it to your tank. Consider reverse osmosis or deionized water to maintain the desired pH balance.</p>
+        <div class="option" onclick="showPage('fishTank')">Back to Fish Tank</div>
+    </div>
+
+    <!-- Page 5: Tips for Grow Bed -->
+    <div id="tipsGrowBed" class="page">
+        <h1>TIPS AND TRICKS - GROW BED</h1>
+        <p>1. To improve soil pH in low-pH locations, mix finely ground limestone into the soil before planting or fertilize with calcium nitrate as recommended by soil tests.</p>
+        <p>2. Mix 2-4 inches of compost or well-rotted manure into the top 6-8 inches of soil to buffer pH fluctuations and provide nutrients.</p>
+        <div class="option" onclick="showPage('growBed')">Back to Grow Bed</div>
+    </div>
+
+    <!-- Page 6: Temperature Tips for Fish Tank -->
+    <div id="temperatureFishTank" class="page">
+        <h1>TIPS AND TRICKS - FISH TANK TEMPERATURE</h1>
+        <p>1. Check if the sensor is properly connected, and no wires are disconnected.</p>
+        <p>2. Set your thermostat to the required temperature.</p>
+        <div class="option" onclick="showPage('fishTank')">Back to Fish Tank</div>
+    </div>
+
+    <!-- Page 7: Temperature Tips for Grow Bed -->
+    <div id="temperatureGrowBed" class="page">
+        <h1>TIPS AND TRICKS - GROW BED TEMPERATURE</h1>
+        <p>1. Fill the box with manure and bedding, water and turn well. If your manure/bedding mixture does not heat up well the first time even with plenty of water and turning, you may have too much bedding.</p>
+        <p>2. Cover the box with greenhouse plastic or row cover to trap heat at night.</p>
+        <div class="option" onclick="showPage('growBed')">Back to Grow Bed</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AquaHarvest. Authors: Sumaiya Batool, Zainab Hasan.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
